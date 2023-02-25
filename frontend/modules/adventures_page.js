@@ -2,9 +2,13 @@
 import config from "../conf/index.js";
 
 //Implementation to extract city from query params
+
 function getCityFromURL(search) {
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
+   const urlparam = new URLSearchParams(search);
+   const urlparam1 = urlparam.get('city');
+   return urlparam1;
 
 }
 
@@ -12,6 +16,15 @@ function getCityFromURL(search) {
 async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
+  try{
+    let response= await fetch(`http://35.154.186.65:8082/adventures?city=${city}`);
+    let result=await response.json();
+    
+    return result;
+  }
+  catch(e){
+    return null;
+  }
 
 }
 
@@ -19,6 +32,41 @@ async function fetchAdventures(city) {
 function addAdventureToDOM(adventures) {
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+  adventures.forEach(e => {
+    var div=document.createElement("div");
+    div.setAttribute("class","col-12 col-sm-6 col-lg-3 mb-3");
+    div.innerHTML=`
+                   <a id=${e.id} href="detail/?adventure=${e.id}">
+                   <div class="card activity-card">
+                   <img src="${e.image}">
+                   <div class="category-banner">${e.category}</div>
+                   <div class="card-body col-md-12 mt-2">
+                   <div class="d-flex justify-content-between">
+                   <p>${e.name}</p>
+                   <p>"₹"+${e.costPerHead}</p>
+                   </div> 
+
+                   <div class="d-flex justify-content-between">
+                   <p>Duration</p>
+                   <p>"₹"+${e.duration} Hours</p>
+                   </div>
+                   </div>
+                   </div>
+                   </a>`
+                   document.getElementById("data").append(div);
+                   
+                   
+                   
+                  
+                   
+                   
+                    
+  });
+  
+    
+    
+
+  
 
 }
 
