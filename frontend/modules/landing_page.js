@@ -19,7 +19,7 @@ async function fetchCities() {
   // TODO: MODULE_CITIES
   // 1. Fetch cities using the Backend API and return the data
   try{
-    let response= await fetch("http://43.204.56.13:8082/cities");
+    let response= await fetch(config.backendEndpoint + "/cities");
     let result=await response.json();
     return result;
   }
@@ -36,7 +36,7 @@ function addCityToDOM(id, city, description, image) {
   let ele=document.createElement("div");
   ele.className="col-sm-12 col-md-6 col-lg-3 my-4";
   ele.innerHTML=
-                      `<a href="pages/adventure/?city=${id}" id="${id}">
+                      `<a href="pages/adventures/?city=${id}" id="${id}">
                       <div class="tile">
             <img src="${image}"/>
            <div class="tile-text">
