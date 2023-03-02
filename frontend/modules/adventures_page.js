@@ -123,7 +123,6 @@ function filterFunction(list, filters) {
   return list;
 }
 
-
 //Implementation of localStorage API to save filters to local storage. This should get called everytime an onChange() happens in either of filter dropdowns
 function saveFiltersToLocalStorage(filters) {
   // TODO: MODULE_FILTERS
