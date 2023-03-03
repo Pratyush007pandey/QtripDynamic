@@ -17,7 +17,7 @@ async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
   try{
-    let response= await fetch(`http://43.204.56.13:8082/adventures?city=${city}`);
+    let response= await fetch(`http://3.6.27.27:8082/adventures?city=${city}`);
     let result=await response.json();
     
     return result;
