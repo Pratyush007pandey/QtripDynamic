@@ -41,12 +41,12 @@ function addAdventureToDOM(adventures) {
                    <div class="card-body col-md-12 mt-2">
                    <div class="d-flex justify-content-between">
                    <p>${e.name}</p>
-                   <p>"₹"+${e.costPerHead}</p>
+                   <p>₹ ${e.costPerHead}</p>
                    </div> 
 
                    <div class="d-flex justify-content-between">
                    <p>Duration</p>
-                   <p>"₹"+${e.duration} Hours</p>
+                   <p>${e.duration} Hours</p>
                    </div>
                    </div>
                    </div>
